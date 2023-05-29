@@ -1,0 +1,16 @@
+def suma(num1,num2):
+    """
+    sumnany: suma de dos numeros enteros
+    args:
+    num1(int)
+    num2(int)
+    return:
+    int:la suma de dos numeros enteros
+    """
+    return num1+num2
+    
+
+resultado= suma(3,5)
+print(resultado)   
+print(suma.__doc__)
+print(help(suma))
