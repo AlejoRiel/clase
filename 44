@@ -14,3 +14,66 @@ resultado= suma(3,5)
 print(resultado)   
 print(suma.__doc__)
 print(help(suma))
+
+
+
+class Usuario:
+    #Atributos de calse
+    username="alejo"
+    email="alejoo_97@hotmail.com"
+
+#para acceder al valor de l atributo "username" lo hago a traves de la clase (mediante el .)
+print(Usuario.username)
+print(Usuario.email)    
+#modificar el atributo
+Usuario.username="alejo riel"
+print(Usuario.username)
+
+
+---------------------
+
+#Declaramos metodos a nuestras clases:
+class Usuario:
+    #Por convencion se llama "self" y hace referencia al objeto
+    def inicializar(self, username,email):
+        self.username= username
+        self.email= email
+
+user_1=Usuario()
+user_2=Usuario()
+#print(user_1.__dict__)
+#print(user_2.__dict__)
+
+#enumera la funcion
+#user_1.inicializar()
+#user_2.inicializar()
+#muestra la funcion inicial(def inicializar)
+#print(user_1.__dict__)
+#print(user_2.__dict__)
+
+user_1.inicializar("alejo","alejoo_96@hotmail.com")
+user_2.inicializar("cfp","cfp@hotmail.com")
+print(user_1.__dict__)
+print(user_2.__dict__)
+
+-----------------------------------------------------------
+class Usuario:
+#TODO:__init__
+   def __init__(self, username="usariodefault", password="12344"):
+    self.username=username
+    self.password=password
+
+user_1=Usuario ("roberto", "12345")
+user_2=Usuario("nestor", "54312")
+user_3=Usuario("delfina","milanesa")
+user_4=Usuario()
+user_5=Usuario()
+print(user_1.__dict__)
+print(user_2.__dict__)
+print(user_3.__dict__)
+print(user_4.__dict__)
+print(user_5.__dict__)
+
+print(id(user_4))
+print(id(user_5))
+
