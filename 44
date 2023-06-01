@@ -77,3 +77,86 @@ print(user_5.__dict__)
 print(id(user_4))
 print(id(user_5))
 
+----------------------------------------------------------------------
+#ejemplo integrador de POO en python
+#Creacion de clase Personaje
+class Personaje: #clase padre
+    #constructor
+    def __init__(self, nombre, fuerza, inteligencia, defensa, vida):
+        self.nombre= nombre
+        self.fuerza= fuerza
+        self.inteligencia= inteligencia
+        self.defensa= defensa
+        self.vida= vida
+#metodo que me permite mostrar todos los atributos de mi personaje
+    def atributos(self):
+        print("nombre:", self.nombre)
+        print("fuerza:", self.fuerza)
+        print("inteligenca:", self.inteligencia)
+        print("defensa:", self.defensa)
+        print("vida:", self.vida)
+#metodo que nos permite subir de nivel  
+    def subir_nivel(self, fuerza, inteligencia, defensa, vida):
+        self.fuerza = self.fuerza + fuerza
+        self.inteligencia = self.inteligencia +inteligencia
+        self.defensa = self.defensa + defensa
+        self.vida = self.vida + defensa
+    #metodo que determina si el personaje esta vivo o no 
+    def esta_vivo(self):
+        return self.vida > 0 
+    
+    #metodo morir
+    def morir(self):
+        self.vida= 0 
+        print(f"{self.nombre} esta muerto.")
+    #metodo daño()
+    def daño(self,enemigo):
+        return self.fuerza - enemigo.defensa   
+        #return f"el daño causado por {self.nombre} es de {self.fuerza - enemigo.defesa} al rival {enemigo.nombre}" 
+#metodo atacar()
+    def atacar(self,enemigo):
+        daño=self.daño(enemigo)
+        enemigo.vida = enemigo.vida + daño
+        print(f"{self.nombre} a realizado {daño} puntos de daño al rival {enemigo.nombre}")
+        if enemigo.esta_vivo():
+            print(f"La vida de {enemigo.nombre} es de {enemigo.vida}")
+        else:
+            enemigo.morir()
+#instanciar un objeto de la clase personaje     
+#aquiles = Personaje("Aquiles",50, 145, 180, 800)
+#aquiles.atributos()
+
+#print("\nsubir Nivel")
+#Llamo a mi metodo subir_nivel
+#aquiles.subir_nivel(100,20,30,100)
+ 
+#Llamado a mis atributos
+#aquiles.atributos()
+
+#Llamado al metodo esta vivo ()
+#print(aquiles.esta_vivo())
+#aquiles.morir()
+#aquiles.atributos()
+
+#print("\nenemigo")
+
+#creando enemigo
+#hector= Personaje("Hector", 50, 120, 180,600)
+#hector.atributos()
+
+#metodo daño()
+#print(aquiles.daño(hector))
+#print(aquiles.atacar(hector))
+#print("\natributos despues del ataque")
+#hector.atributos()
+
+
+
+#HERENCIA
+class Guerrero(Personaje): #clase hija
+    def __init__(self, nombre, fuerza, inteligencia, defensa, vida, nivel, espada):
+        super().__init__(nombre, fuerza, inteligencia, defensa, vida)
+        self.espada= espada
+
+prise= Guerrero("Prise",100,150,80,700)
+prise.atributos()
