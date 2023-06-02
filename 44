@@ -158,5 +158,42 @@ class Guerrero(Personaje): #clase hija
         super().__init__(nombre, fuerza, inteligencia, defensa, vida)
         self.espada= espada
 
-prise= Guerrero("Prise",100,150,80,700)
-prise.atributos()
+#metodo que nos permite modificar el daño dependiando el tipo de espada.
+    def cambiar_arma(self):
+        tipo_arma= int(input("""seleccione el tipo de arama:
+                            1_doran - daño 12
+                            2_filo infinito - daño 70
+                            3-sanguinaria - daño 80
+                            """   ))
+#logica al elegir el arma:
+        if tipo_arma==1:
+            self.espada=12
+        elif tipo_arma==2:
+            self.espada==70
+        elif tipo_arma==3:
+            self.espada= 80
+        else:
+            print("opcion no valida")
+      #sobreescribimos el metodo atributos() para muestre el daño de la espada     
+    def atributos(self):
+        super().atributos()
+        print(f"espada:{self.espada}")
+  #sobreescribimos el metodo daño() ya que como incorporamos un accesorio al guerrero este provoca mas daño      
+    def daño(self,enemigo):
+        return self.fuerza +self.espada - enemigo.defensa 
+    
+#prise= Guerrero("Prise",100,150,80,700)
+#prise.atributos()      
+
+
+#ejecuto el metodo cambiar_carma() y vuelvo  a llamr a mis atributos
+#prise.cambiar_arma()
+#prise.atributos()  
+
+#simulacion pelea       
+facundo=Personaje("Facundo",60,120,40,550)
+alejo= Guerrero("Alejo",65,110,45,600,5)
+alejo.cambiar_arma()
+
+#combate
+print(alejo.daño(facundo))
