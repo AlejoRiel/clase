@@ -71,3 +71,70 @@ class EstudianteSecundario(Estudiante):
         
         
     def
+
+-------------------------------------------------------------------------------
+#TODO: herencia multiple:cuando se habla de herencia multiple, quiere decirque la clase Hija se construye a partir de mas de una clase Principal, a su vez la clase HIJA hereda los atributod y metodos de ambas clase.
+#class animalAereo:
+#    def comer(slef):
+#        print("El animal aereo esta comiendo")
+
+#    def volar(self):
+#        print("Volando")
+
+#class animalTerrestre:
+#    def comer(self):
+#        print("El animal terrestre esta comiendo")
+
+#    def caminar(self):
+#        print("caminando")    
+
+#class Pajaro(animalAereo,animalTerrestre):
+#    pass
+
+#pato= Pajaro()
+#pato.volar()
+#pato.comer()
+
+#TODO: Esto suceda por que Python, al encontrarse con metodos con el mismo nombre en diferentes clases Padres, va usar los metodos correspondientes a la primera clase Padre Definida. A esto se lo conoce como MRO, de las siglas en ingles para "Orden de resolucion de metodos".
+
+
+#-------------------------------------------------------------------------------
+# TODO: En python, ademas de la Herencia multiple, podemos encontrarnos tambien con Herencia multinivel. Este tipo de Herencia hace referencia a clases Hijas que son derivadas de una clase Padre, que a su vez es derivada de ot5ra clase Padre.
+
+class Persona:
+    def __init__(self, nombre, apellido, edad):
+        self.nombre= nombre
+        self.apellido= apellido
+        self.edad= edad
+        self.documento_identidad= None
+
+    def agregar_documento_identidad(self,numero_documento):
+        self.documento_identidad= numero_documento
+        print("documento guardado con exito")
+
+    def ejecutar_accion(self):
+        print("Realizando una tarea")
+
+class Deportista(Persona):
+    def __init__(self, nombre, apellido, edad,deporte):
+        super().__init__(nombre, apellido, edad)                
+        self.deporte= deporte
+
+    def ejecutar_accion(self):
+        super().ejecutar_accion()
+        print(f"Practicando {self.deporte}")
+        
+
+class Ciclista(Deportista):
+    def __init__(self, nombre, apellido, edad):
+        self.deporte="ciclismo"
+        super().__init__(nombre, apellido, edad,self.deporte)
+
+    def pedalear(self):
+        print("Pedaleando")
+
+
+alejo=Ciclista("Alejo", "Riel", 25)
+alejo.ejecutar_accion()
+alejo.agregar_documento_identidad(40323432)
+print(alejo.documento_identidad)
