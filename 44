@@ -197,3 +197,82 @@ alejo.cambiar_arma()
 
 #combate
 print(alejo.daño(facundo))
+
+______________________________________________________________________________________________________________
+#TODO: POO
+#Nombre de la clase: Siempre va en mayuscula y en singular,
+class Animal:
+    #Metodo Inicializar(__init__) que se encarga de inicializar los objetos nuevos de la clase Animal,  
+    def __init__(self,nombre, especie, habitat):
+        self.nombre=nombre
+        self.especie=especie
+        self.habitat=habitat
+    #Metodo __str__:Convierte el lenguaje de objetos de string(texto),recibe un solo parametro(self):Resumen de como se ve el objeto
+    
+    def __str__(self):
+        return f"{self.nombre} {self.especie} {self.habitat}"
+
+    #GET:Obtener(por convencion el metodod get que sea se debe llamar getNombreFuncion)    
+    def get_nombre(self):
+        return self.nombre
+
+    def get_especie(self):
+        return self.especie    
+    
+    #Metodo:Set:Modificacion
+    def set_nombre(self,nombre):
+        self.nombre= nombre
+
+    def set_especie(self,especie):
+        self.especie=especie
+
+    def set_habitat(self,habitat):
+        self.habitat=habitat
+
+#Instanciar objeto animal         
+perro=Animal("Coraje", "canino", "Terrestre")
+print(perro)    
+#Get
+print(perro.get_nombre())
+print(perro.get_especie())
+#Set
+perro.set_nombre("coraje el perro cobarde")
+print(perro)
+
+perro.set_especie("chico")
+perro.set_habitat("Selva")
+print(perro)
+
+____________________________________________________________________________
+
+class Vehiculo:
+    def __init__(self,tipo, tripulado, fabricante):
+        self.tipo=tipo
+        self.tripulado= tripulado
+        self.fabricante=fabricante
+    
+    def get_tipo(self):
+        return self.tipo
+    
+    def get_tripulado(self):
+        return self.tripulado
+    
+    def get_fabricante(self):
+        return self.fabricante
+    
+    def __str__(self):
+        return self.tipo
+    
+class Avion(Vehiculo):
+    def __init__(self, tipo, tripulado, fabricante, turbinas, alas):
+            super().__init__(tipo, tripulado, fabricante)
+            self.turbinas=turbinas
+            self.alas=alas    
+        
+    def __str__(self):
+            return self.alas
+
+dron=Vehiculo("Aereo", False, "Dell")
+print(dron)
+b_737= Avion("Aereo", True, "Boening", 2, "Viva")
+print(b_737)
