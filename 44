@@ -276,3 +276,102 @@ dron=Vehiculo("Aereo", False, "Dell")
 print(dron)
 b_737= Avion("Aereo", True, "Boening", 2, "Viva")
 print(b_737)
+--------------------------------------------------------------------------------------------------
+class Estudiante:
+    def __init__(self, nombre, edad, promedio):
+        self.nombre = nombre
+        self.edad = edad
+        self.promedio = promedio
+    
+    def get_nombre(self):
+        return self.nombre
+    
+    def get_edad(self):
+        return self.edad
+    
+    def get_promedio(self):
+        return self.promedio
+    
+    def set_nombre(self, nombre):
+        self.nombre = nombre
+    
+    def set_edad(self, edad):
+        self.edad = edad
+    
+    def set_promedio(self, promedio):
+        self.promedio = promedio
+    
+    def __str__(self):
+        return f"Nombre: {self.nombre}, Edad: {self.edad}, Promedio: {self.promedio}"
+
+
+# Ejemplo de uso
+estudiante1 = Estudiante("Juan", 20, 8.5)
+print(estudiante1)  # Imprime: Nombre: Juan, Edad: 20, Promedio: 8.5
+
+estudiante1.set_promedio(9.2)
+print(estudiante1)  # Imprime: Nombre: Juan, Edad: 20, Promedio: 9.2
+
+
+
+#Ejercicio 2
+
+class Cuenta:
+    def __init__(self, numero, titular, saldo):
+        self.numero = numero
+        self.titular = titular
+        self.__saldo = saldo  # Utilizamos el encapsulamiento para proteger el saldo
+    
+    def get_numero(self):
+        return self.numero
+    
+    def get_titular(self):
+        return self.titular
+    
+    def get_saldo(self):
+        return self.__saldo
+    
+    def set_saldo(self, saldo):
+        self.__saldo = saldo
+    
+    def depositar(self, monto):
+        self.__saldo += monto
+    
+    def retirar(self, monto):
+        if monto <= self.__saldo:
+            self.__saldo -= monto
+        else:
+            print("Saldo insuficiente. No se pudo realizar el retiro.")
+
+
+class Banco:
+    def __init__(self):
+        self.cuentas = []
+    
+    def agregar_cuenta(self, cuenta):
+        self.cuentas.append(cuenta)
+    
+    def saldo_total(self):
+        total = 0
+        for cuenta in self.cuentas:
+            total += cuenta.get_saldo()
+        return total
+
+
+# Ejemplo de uso
+banco1 = Banco()
+
+cuenta1 = Cuenta(12345, "Andrea", 1000)
+cuenta2 = Cuenta(67890, "Facundo", 2500)
+cuenta3 = Cuenta(13579, "Joaquin", 500)
+
+banco1.agregar_cuenta(cuenta1)
+banco1.agregar_cuenta(cuenta2)
+banco1.agregar_cuenta(cuenta3)
+
+print(banco1.saldo_total())  # Imprime: 4000
+
+cuenta1.depositar(500)
+cuenta2.retirar(200)
+
+print(banco1.saldo_total())  # Imprime: 4300
