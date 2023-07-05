@@ -252,6 +252,136 @@ class Estudiante:
 
 f = Estudiante("Joaquin", 20, [5, 2, 3])
 f.calcular_promedio([1, 2, 3])
+-----------------------------------------------------------
+#HECHOS POR EL PROFE
+
+#1-
+nombre = input("Ingrese su nombre: ")
+print("¡Hola,", nombre, "! Bienvenido.")
+
+
+#2-
+numero = int(input("Ingrese un número: "))
+if numero > 0:
+    print("El número es positivo.")
+elif numero < 0:
+    print("El número es negativo.")
+else:
+    print("El número es cero.")
+
+#3-
+# Bucle while
+contador = 1
+while contador <= 10:
+    print(contador)
+    contador += 1
+
+# Bucle for
+for numero in range(2, 21, 2):
+    print(numero)
+
+#4-
+nombres = ["Juan", "María", "Carlos", "Ana"]
+for nombre in nombres:
+    print(nombre)
+
+#5-
+colores = ("rojo", "verde", "azul")
+for color in colores:
+    print(color)
+
+#6-
+ciudades = {"Lima": 9500000, "Buenos Aires": 3075646, "Ciudad de México": 8851080}
+for ciudad, poblacion in ciudades.items():
+    print(ciudad, "- Población:", poblacion)
+
+#7-
+class Rectángulo:
+    def __init__(self, longitud, ancho):
+        self.longitud = longitud
+        self.ancho = ancho
+
+    def calcular_area(self):
+        return self.longitud * self.ancho
+
+    def calcular_perimetro(self):
+        return 2 * (self.longitud + self.ancho)
+
+rectangulo = Rectángulo(5, 3)
+print("Área:", rectangulo.calcular_area())
+print("Perímetro:", rectangulo.calcular_perimetro())
+
+#8-
+class Rectángulo:
+    def __init__(self, longitud, ancho):
+        self.longitud = longitud
+        self.ancho = ancho
+
+    def calcular_area(self):
+        return self.longitud * self.ancho
+
+    def calcular_perimetro(self):
+        return 2 * (self.longitud + self.ancho)
+
+    def __str__(self):
+        return f"Rectángulo de longitud {self.longitud} y ancho {self.ancho}"
+
+rectangulo = Rectángulo(5, 3)
+print(rectangulo)
+
+#9-
+class Vehículo:
+    def __init__(self, marca, modelo, año):
+        self.marca = marca
+        self.modelo = modelo
+        self.año = año
+
+class Automóvil(Vehículo):
+    def __init__(self, marca, modelo, año, puertas):
+        super().__init__(marca, modelo, año)
+        self.puertas = puertas
+
+class Motocicleta(Vehículo):
+    def __init__(self, marca, modelo, año, cilindrada):
+        super().__init__(marca, modelo, año)
+        self.cilindrada = cilindrada
+
+
+#10-
+class Estudiante:
+    def __init__(self, nombre, edad, calificaciones):
+        self.nombre = nombre
+        self.edad = edad
+        self.calificaciones = calificaciones
+
+    def calcular_promedio(self):
+        total_calificaciones = sum(self.calificaciones)
+        promedio = total_calificaciones / len(self.calificaciones)
+        return promedio
+
+    def obtener_estado(self):
+        promedio = self.calcular_promedio()
+        if promedio >= 70:
+            return "Aprobado"
+        else:
+            return "Reprobado"
+
+    def __str__(self):
+        return f"Estudiante: {self.nombre}, Edad: {self.edad}"
+
+# Crear una lista de estudiantes
+estudiantes = [
+    Estudiante("Juan", 20, [80, 75, 90]),
+    Estudiante("María", 19, [70, 65, 80]),
+    Estudiante("Carlos", 21, [60, 55, 70])
+]
+
+# Iterar sobre la lista de estudiantes y mostrar su información
+for estudiante in estudiantes:
+    print(estudiante)
+    print("Promedio:", estudiante.calcular_promedio())
+    print("Estado:", estudiante.obtener_estado())
+    print()
 
 
 
