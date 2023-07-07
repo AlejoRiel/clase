@@ -1,0 +1,156 @@
+# Examen Final - Python
+
+# Ejercicios
+
+#1- (0.5 punto)
+# Utilizando un bucle while, solicita al usuario que ingrese nombres de personas hasta que ingrese "salir". Luego, muestra todos los nombres ingresados. 
+# Bonus: Validar que independiente en la forma en que el usuario escriba "salir" el programa funcione correctamente. (0.5 puntos)
+
+#2- (1 punto)
+# Escribe un programa que solicite al usuario ingresar un número por teclado. A continuación, el programa debe imprimir los números desde 1 hasta el número ingresado, elevados al cuadrado.
+
+#2- (1 punto)
+# Crea un diccionario que represente un inventario de una tienda, donde las llaves sean los nombres de los productos y los valores sean los precios. Luego, muestra el producto más caro y su precio. 
+
+#3- (1 punto)
+# Escribe una función llamada calcular_descuento que tome dos parámetros: precio y porcentaje_descuento. La función debe calcular y devolver el precio después de aplicar el descuento correspondiente. 
+#Bonus: Escribir un programa que solicite al usuario ingresar el precio de un producto y el porcentaje de descuento. Luego, utiliza la función calcular_descuento para obtener el precio final y muestra el resultado al usuario. (1 punto)
+
+#4- (4 puntos)
+# Crea una clase llamada Producto que represente un producto de una tienda. La clase debe tener los siguientes atributos:
+# nombre: el nombre del producto.
+# precio: el precio del producto.
+# cantidad: la cantidad disponible del producto en inventario.
+
+# La clase Producto debe tener los siguientes métodos:
+# Cada atributo debera contar con sus respectivos metodos get() y set()
+# actualizar_precio(nuevo_precio): este método actualiza el precio del producto con el nuevo precio proporcionado como parámetro.
+# vender(cantidad_vendida): este método resta la cantidad vendida del producto a la cantidad disponible en inventario.
+# reabastecer(cantidad_reabastecida): este método suma la cantidad reabastecida del producto a la cantidad disponible en inventario.
+
+# Además, implementa el método especial __str__ en la clase Producto para que al imprimir un objeto producto, se muestre su nombre y precio de forma legible.
+
+# Crea una lista de productos con al menos 3 instancias de la clase Producto, cada una con diferentes nombres, precios y cantidades disponibles. Luego, utiliza un bucle for para recorrer la lista de productos y mostrar la siguiente información de cada producto:
+# Nombre y precio del producto.
+# Cantidad disponible del producto.
+
+#Bonus: Validar que el metodo vender() cuente con el stock disponible. // Validar que el metodo actualizar_precio() no permita actualizar si se ingresa un numero negativo. (1punto)
+
+#Repuestas Evaluacion FINAL
+
+#1- 
+# Utilizando un bucle while, solicita al usuario que ingrese nombres de personas hasta que ingrese "salir". Luego, muestra todos los nombres ingresados. (1 pto)
+# Bonus: Validar que independiente en la forma en que el usuario escriba "salir" el programa funcione correctamente.
+
+# nombre = input("Ingrese un nombre, para terminar el programa escriba 'salir': ").lower()
+# nombres = []
+
+# while nombre != "salir":
+#     nombres.append(nombre)
+#     nombre = input("Ingrese un nombre, para terminar el programa escriba 'salir': ").lower()
+
+# print(f"El listado de nombres es : {nombres}")
+
+#2-
+# numero = int(input("Ingrese un número: "))
+
+# for i in range(1, numero + 1):
+#     cuadrado = i ** 2
+#     print(cuadrado)
+
+# numero = int(input("Ingrese un número: "))
+
+# for i in range(1, numero + 1):
+#     print(i ** 2)
+
+
+
+#3-
+# productos = {
+#     "arroz" : 100,
+#     "fideos":  50,
+#     "aceite": 40,
+#     "mermelada" : 70,
+#     "fernet" : 150
+#     }
+
+# producto_mayor_valor = ""
+# precio_mayor_valor = 0
+
+# for producto, precio in productos.items():
+#     if precio > precio_mayor_valor:
+#         producto_mayor_valor = producto
+#         precio_mayor_valor = precio
+
+# print(f"El producto mas caro es {producto_mayor_valor} y su precio es {precio_mayor_valor}")
+
+#4-
+# def calcular_descuento(precio, porcentaje_descuento):
+#     descuento = precio * (porcentaje_descuento / 100)
+#     precio_final = precio - descuento
+#     return precio_final
+
+# def programa_principal():
+#     precio = float(input("Ingrese el precio del producto: "))
+#     porcentaje_descuento = float(input("Ingrese el porcentaje de descuento: "))
+#     precio_final = calcular_descuento(precio, porcentaje_descuento)
+#     print("El precio final después del descuento es:", precio_final)
+
+# programa_principal()
+
+#5-
+# class Producto:
+#     def __init__(self,nombre,precio,cantidad):
+#         self.nombre = nombre
+#         self.precio = precio
+#         self.cantidad = cantidad
+
+#     def get_nombre(self):
+#         return self.nombre
+
+#     def get_precio(self):
+#         return self.precio
+
+#     def get_cantidad(self):
+#         return self.cantidad
+
+#     def set_nombre(self,nombre):
+#         return self.nombre == nombre
+
+#     def set_precio(self,precio):
+#         return self.precio == precio
+
+#     def set_cantidad(self, cantidad):
+#         return self.cantidad == cantidad
+
+#     def actualizar_precio(self, nuevo_precio):
+#         if nuevo_precio >= 0:
+        #     self.precio = nuevo_precio
+        #     print("Precio actualizado correctamente.")
+        # else:
+        #     print("El precio no puede ser negativo.")
+
+#     def vender(self, cantidad_vendida):
+#         if cantidad_vendida <= self.cantidad:
+#             self.cantidad -= cantidad_vendida
+#             print("Venta realizada correctamente.")
+#         else:
+#             print("No hay suficiente stock disponible.")
+
+#     def reabastecer(self, cantidad_reabastecida):
+#         self.cantidad += cantidad_reabastecida
+
+#     def __str__(self):
+#         return f"Producto: {self.nombre}, Precio: {self.precio}"
+
+# producto1 = Producto("Camiseta", 20, 50)
+# producto2 = Producto("Pantalón", 30, 40)
+# producto3 = Producto("Zapatos", 50, 20)
+
+# lista_productos = [producto1, producto2, producto3]
+
+
+# for producto in lista_productos:
+#     print(producto)
+#     print("Cantidad disponible:", producto.cantidad)
+#     print()
